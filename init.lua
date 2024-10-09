@@ -66,4 +66,13 @@ end)
 -- local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
 -- vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
 ---------------------------------------------------
+
 ---------------------------------------------------
+-- The plus register ("+") is the system clipboard. So this says we should use the system clipboard as the default for the unnamed register operations.
+-- You need to make sure you have a clipboard provider installed on the system first, however. 
+-- sudo apt update
+-- sudo apt install xclip
+-- echo "Hello from WSL" | xclip -selection clipboard
+-- then here in nvim - :checkhealth clipboard
+vim.opt.clipboard:append { 'unnamedplus' }
+
